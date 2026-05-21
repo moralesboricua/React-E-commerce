@@ -34,7 +34,7 @@ const Nav = () => {
                 </ul>
                 <div className="menu__backdrop">
                     <button className="btn__menu btn__menu--close">
-                        <fontAwesomeicon icon="times" />
+                        <FontAwesomeIcon icon="times" />
                     </button>
                     <ul className="manu__links">
                         <li className="menu__list">

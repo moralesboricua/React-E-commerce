@@ -38,4 +38,4 @@ function Highlights() {
   )
 }
 
-export default Highlights
+export default Highlights;
