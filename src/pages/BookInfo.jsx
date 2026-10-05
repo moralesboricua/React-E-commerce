@@ -1,7 +1,7 @@
 
 import React from 'react'
 
-function BookInfo({ books }) => {
+function BookInfo ({ books }) => {
   return (
     <div id="books__body">
         <main id="books__main">
