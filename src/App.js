@@ -1,6 +1,6 @@
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Home from "./pages/Home";
 import Books from "./pages/Books";
 import { books } from "./data";
@@ -12,11 +12,11 @@ function App() {
       <div className="App">
         <Nav />
 
-        <switch>
+        <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/books" exact render={() => <Books books={books} />} />
           <Route path="/books/1" render={() => <BookInfo books={books} />} />
-        </switch>
+        </Switch>
         <Footer />
       </div>
     </Router>
