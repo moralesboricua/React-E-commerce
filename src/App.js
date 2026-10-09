@@ -12,13 +12,11 @@ function App() {
       <div className="App">
         <Nav />
 
-        <Route path="/books">
-          <h1>BOOKS ROUTE TEST</h1>
-        </Route>
-
-        <Route path="/" exact component={Home} />
-        <Route path="/books" exact render={() => <Books books={books} />} />
-        <Route path="/books/1" render={() => <BookInfo books={books} />} />
+        <switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/books" exact render={() => <Books books={books} />} />
+          <Route path="/books/1" render={() => <BookInfo books={books} />} />
+        </switch>
         <Footer />
       </div>
     </Router>
