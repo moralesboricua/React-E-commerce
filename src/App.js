@@ -8,7 +8,7 @@ import BookInfo from "./pages/BookInfo";
 
 function App() {
   return (
-    <Router forceRefresh>
+    <Router>
       <div className="App">
         <Nav />
 
