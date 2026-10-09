@@ -9,6 +9,13 @@ import BookInfo from "./pages/BookInfo";
 function App() {
   return (
     <Router>
+
+<Route
+  render={({ location }) => (
+    <p>Current route: {location.pathname}</p>
+  )}
+/>
+
       <div className="App">
         <Nav />
 
