@@ -16,9 +16,11 @@ function App() {
         <Nav />
 
         <Switch>
+
           <Route path="/" exact component={Home} />
           <Route path="/books" exact render={() => <Books books={books} />} />
-          <Route path="/books/1" render={() => <BookInfo books={books} />} />
+          <Route path="/books/:id" render={() => <BookInfo books={books} />} />
+        
         </Switch>
         <Footer />
       </div>
