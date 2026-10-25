@@ -40,10 +40,28 @@ function Cart() {
                   </div>
                   <div className="cart__total">
                     $10.00
-                    
+
                   </div>
                 </div>
               </div>
+            </div>
+            <div className="total">
+                <div className="total__item total__sub-total">
+                    <span>Subtotal</span>
+                    <span>$9.00</span>
+                </div>
+                <div className="total__item total__tax">
+                    <span>Tax</span>
+                    <span>$23.25</span>
+                </div>
+                <div className="total__item total__price">
+                    <span>Total</span>
+                    <span>$232.50</span>
+                </div>
+                <button className="btn btn__checkout no-cursor"
+                onClick={() => alert(`Haven't got around to doing this :(`)}>
+                    Proceed to checkout
+                </button>
             </div>
           </div>
         </div>

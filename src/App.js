@@ -1,3 +1,5 @@
+
+import React, { useState, useEffect } from "react";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
@@ -8,6 +10,33 @@ import BookInfo from "./pages/BookInfo";
 import Cart from "./pages/Cart";
 
 function App() {
+  const [cart, setCart] = useState([]);
+
+  function addToCart(book) {
+    const dupeItem = cart.find(item => +item.id === +book.id)
+    if (dupeItem) {
+      setCart(cart.map(item => {
+        if(item.id === dupeItem.id) {
+          return{
+            ...item,
+            quantity: item.quantity + 1,
+          }
+        }
+        else {
+          return item
+        }
+      }))
+    }
+    else {
+      setCart([...cart, {...book, quantity: 1}]);
+    }
+  }
+
+  useEffect(() => {
+    console.log(cart);
+  }, [cart])
+
+
   return (
     <Router>
 
@@ -20,7 +49,7 @@ function App() {
 
           <Route path="/" exact component={Home} />
           <Route path="/books" exact render={() => <Books books={books} />} />
-          <Route path="/books/:id" render={() => <BookInfo books={books} />} />
+          <Route path="/books/:id" render={() => <BookInfo books={books} addToCart={addToCart}/>} />
           <Route path="/cart" render={() => <Cart books={books} />} />
         
         </Switch>
