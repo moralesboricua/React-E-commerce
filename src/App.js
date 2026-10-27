@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
@@ -13,50 +12,48 @@ function App() {
   const [cart, setCart] = useState([]);
 
   function addToCart(book) {
-    setCart([...cart, book])
+    setCart([...cart, { ...book, quantity: 1 }]);
   }
-  
 
- // function addToCart(book) {
-  //  const dupeItem = cart.find(item => +item.id === +book.id)
-  //  if (dupeItem) {
-    //  setCart(cart.map(item => {
-       // if(item.id === dupeItem.id) {
-         // return{
-         //   ...item,
-        //    quantity: item.quantity + 1,
-       //   }
-      //  }
-      //  else {
-      //  return item
-      //  }
-    //  }))
-   // }
-  //  else {
-   //   setCart([...cart, {...book, quantity: 1}]);
-  //  }
- // }
+  function changeQuantity(book, quantity) {
+    setCart(cart.map(item => {
+      if (item.id === book.id) {
+        return {
+          ...item,
+          quantity: +quantity,
+        }
+      }
+      else {
+        return item 
+      }
+    }))
+  }
+
 
   useEffect(() => {
     console.log(cart);
-  }, [cart])
-
+  }, [cart]);
 
   return (
     <Router>
-
-
-
       <div className="App">
         <Nav />
 
         <Switch>
-
           <Route path="/" exact component={Home} />
           <Route path="/books" exact render={() => <Books books={books} />} />
-          <Route path="/books/:id" render={() => <BookInfo books={books} addToCart={addToCart}/>} />
+          <Route
+            path="/books/:id"
+            render={() => (
+              <BookInfo
+                books={books}
+                addToCart={addToCart}
+                cart={cart}
+                changeQuantity={changeQuantity}
+              />
+            )}
+          />
           <Route path="/cart" render={() => <Cart books={books} />} />
-        
         </Switch>
         <Footer />
       </div>
@@ -65,3 +62,26 @@ function App() {
 }
 
 export default App;
+
+
+
+
+// function addToCart(book) {
+  //  const dupeItem = cart.find(item => +item.id === +book.id)
+  //  if (dupeItem) {
+  //  setCart(cart.map(item => {
+  // if(item.id === dupeItem.id) {
+  // return{
+  //   ...item,
+  //    quantity: item.quantity + 1,
+  //   }
+  //  }
+  //  else {
+  //  return item
+  //  }
+  //  }))
+  // }
+  //  else {
+  //   setCart([...cart, {...book, quantity: 1}]);
+  //  }
+  // }
