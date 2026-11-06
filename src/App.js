@@ -53,7 +53,7 @@ function App() {
               />
             )}
           />
-          <Route path="/cart" render={() => <Cart books={books} />} />
+          <Route path="/cart" render={() => <Cart books={books} cart={cart}/>} />
         </Switch>
         <Footer />
       </div>
