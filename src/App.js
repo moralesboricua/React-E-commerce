@@ -16,17 +16,15 @@ function App() {
   }
 
   function changeQuantity(book, quantity) {
-    setCart(cart.map(item => {
-      if (item.id === book.id) {
-        return {
+    setCart(cart.map((item) =>
+      item.id === book.id
+        ? {
           ...item,
           quantity: +quantity,
         }
-      }
-      else {
-        return item 
-      }
-    }))
+        : item 
+      )
+    );
   }
 
 
@@ -53,7 +51,7 @@ function App() {
               />
             )}
           />
-          <Route path="/cart" render={() => <Cart books={books} cart={cart}/>} />
+          <Route path="/cart" render={() => <Cart books={books} cart={cart} changeQuantity={changeQuantity}/>} />
         </Switch>
         <Footer />
       </div>

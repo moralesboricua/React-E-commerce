@@ -16,7 +16,7 @@ function Cart({ cart, changeQuantity}) {
                 <span className="cart__total">Price</span>
               </div>
               <div className="cart__body">
-                {Cart.map((book) => {
+                {cart.map((book) => {
                   return (
                     <div className="cart__item">
                       <div className="cart__book">
@@ -38,7 +38,7 @@ function Cart({ cart, changeQuantity}) {
                           type="number"
                           min={0}
                           max={99}
-                          class="cart__input"
+                          className="cart__input"
                           value={book.quantity}
                           onChange={(event) => changeQuantity(book, event.target.value)}
                         />
